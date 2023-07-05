@@ -4,14 +4,16 @@ public abstract class IPiece
     protected bool _isAlive;
     protected bool _hasMoved;
     protected string _color;
+    protected Position _position;
     protected List<Position> _possibleMoves = new List<Position> {};
 
     // constructor
-    public IPiece(string color, bool isAlive = true, bool hasMoved = false)
+    public IPiece(string color, Position position, bool isAlive = true, bool hasMoved = false)
     {
         _isAlive = isAlive;
         _hasMoved = hasMoved;
         _color = color;
+        _position = position;
     }
 
     // methods
@@ -43,5 +45,15 @@ public abstract class IPiece
     public string getColor()
     {
         return _color;
+    }
+
+    public Position GetPosition()
+    {
+        return _position;
+    }
+
+    public void setPosition(Position position)
+    {
+        _position = position;
     }
 }

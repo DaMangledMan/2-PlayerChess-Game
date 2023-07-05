@@ -24,5 +24,26 @@ public class Board
         // this should check to make sure there is a possible move for the player who's turn it currently is
     }
 
-    public bool checkForChecks(string colorWeCareAbout) : bool
+    public bool checkForChecks(string colorWeCareAbout)
+    {
+        return false; // this is just to prevent it from looking highlighting red
+
+        // this should check to make sure there is a possible move for the player who's turn it currently is
+    }
+
+    public bool checkForChecksMates(string colorWeCareAbout)
+    {
+        return false; // this is just to prevent it from looking highlighting red
+
+        // this should check to make sure there is a possible move for the player who's turn it currently is
+    }
+
+    public bool attemptToMakeMove(string moveToAttempt)
+    {
+        return false; // this is just to prevent it from looking highlighting red
+
+        // takes input as a move, attempts to make the move, returns a bool to notify the program if the move was succesful
+    }
+
+    
 }
