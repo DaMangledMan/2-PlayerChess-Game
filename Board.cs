@@ -8,6 +8,18 @@ public class Board
     public Board()
     {
         // initiates the entire chess board in the starting position
+
+        // creates the first rank
+        List<Square> firstRank = new List<Square>();
+
+        
+
+        
+
+        for (int i = 0; i >= 8; i++)
+        {
+            Square A = new Square(new Position(0,0), new Rook("white", new Position(0,0)), "white");
+        }
     }
 
     // methods
@@ -45,5 +57,5 @@ public class Board
         // takes input as a move, attempts to make the move, returns a bool to notify the program if the move was succesful
     }
 
-    
+
 }

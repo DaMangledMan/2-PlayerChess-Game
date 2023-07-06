@@ -30,3 +30,5 @@ public class Square
         return _colorOfOccupier;
     }
 }
+
+

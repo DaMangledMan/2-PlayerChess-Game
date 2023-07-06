@@ -5,7 +5,6 @@ public abstract class IPiece
     protected bool _hasMoved;
     protected string _color;
     protected Position _position;
-    protected List<Position> _possibleMoves = new List<Position> {};
 
     // constructor
     public IPiece(string color, Position position, bool isAlive = true, bool hasMoved = false)
@@ -17,8 +16,6 @@ public abstract class IPiece
     }
 
     // methods
-
-    public abstract void checkPossibleMoves();
     
     public abstract void makeMove();
 
