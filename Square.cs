@@ -25,6 +25,11 @@ public class Square
         return _occupiedBy;
     }
 
+    public void setOccupiedBy(IPiece piece)
+    {
+        _occupiedBy = piece;
+    }
+
     public string getColorOfOccupier()
     {
         return _colorOfOccupier;

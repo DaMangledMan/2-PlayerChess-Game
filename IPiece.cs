@@ -4,20 +4,21 @@ public abstract class IPiece
     protected bool _isAlive;
     protected bool _hasMoved;
     protected string _color;
-    protected Position _position;
+    protected Position _position = new Position(0, 0);
 
     // constructor
-    public IPiece(string color, Position position, bool isAlive = true, bool hasMoved = false)
+    public IPiece(string color, bool isAlive = true, bool hasMoved = false)
     {
         _isAlive = isAlive;
         _hasMoved = hasMoved;
         _color = color;
-        _position = position;
     }
 
     // methods
     
     public abstract void makeMove();
+
+    public abstract string symbol();
 
     public bool getIsAlive()
     {

@@ -1,0 +1,15 @@
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\2-PlayerChess-Game.csproj.AssemblyReference.cache
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\2-PlayerChess-Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\2-PlayerChess-Game.AssemblyInfoInputs.cache
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\2-PlayerChess-Game.AssemblyInfo.cs
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\2-PlayerChess-Game.csproj.CoreCompileInputs.cache
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\bin\Debug\net7.0\2-PlayerChess-Game.exe
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\bin\Debug\net7.0\2-PlayerChess-Game.deps.json
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\bin\Debug\net7.0\2-PlayerChess-Game.runtimeconfig.json
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\bin\Debug\net7.0\2-PlayerChess-Game.dll
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\bin\Debug\net7.0\2-PlayerChess-Game.pdb
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\2-PlayerChess-Game.dll
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\refint\2-PlayerChess-Game.dll
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\2-PlayerChess-Game.pdb
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\2-PlayerChess-Game.genruntimeconfig.cache
+C:\Users\jacob\OneDrive\School\Desktop\desktop\School\ByuI\Programming\GitHub\2-PlayerChess-Game\obj\Debug\net7.0\ref\2-PlayerChess-Game.dll

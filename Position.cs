@@ -12,8 +12,13 @@ public class Position
     }
 
     // methods
-    public Array[] getPosition()
+    public List<int> getPosition()
     {
-        return Array[_x, _y];
+        return new List<int>{_x, _y};
+    }
+
+    public void display()
+    {
+        Console.WriteLine($"x: {_x}\ny: {_y}");
     }
 }

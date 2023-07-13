@@ -9,17 +9,80 @@ public class Board
     {
         // initiates the entire chess board in the starting position
 
-        // creates the first rank
-        List<Square> firstRank = new List<Square>();
 
+
+        // creates the board without any pieces        
         
-
-        
-
-        for (int i = 0; i >= 8; i++)
+        List<Square> Rank1 = new List<Square>();
+        for (int i = 1; i > 8; i++)
         {
-            Square A = new Square(new Position(0,0), new Rook("white", new Position(0,0)), "white");
+            Square one = new Square(new Position(i, 1), new NoPiece(), "clear");
+            Rank1.Add(one);
         }
+
+        List<Square> Rank2 = new List<Square>();
+        for (int i = 1; i > 8; i++)
+        {
+            Square two = new Square(new Position(i, 2), new NoPiece(), "clear");
+            Rank2.Add(two);
+        }
+
+        List<Square> Rank3 = new List<Square>();
+        for (int i = 1; i > 8; i++)
+        {
+            Square three = new Square(new Position(i, 3), new NoPiece(), "clear");
+            Rank3.Add(three);
+        }
+
+        List<Square> Rank4 = new List<Square>();
+        for (int i = 1; i > 8; i++)
+        {
+            Square four = new Square(new Position(i, 4), new NoPiece(), "clear");
+            Rank4.Add(four);
+        }
+
+        List<Square> Rank5 = new List<Square>();
+        for (int i = 1; i > 8; i++)
+        {
+            Square five = new Square(new Position(i, 5), new NoPiece(), "clear");
+            Rank5.Add(five);
+        }
+
+        List<Square> Rank6 = new List<Square>();
+        for (int i = 1; i > 8; i++)
+        {
+            Square six = new Square(new Position(i, 6), new NoPiece(), "clear");
+            Rank6.Add(six);
+        }
+
+        List<Square> Rank7 = new List<Square>();
+        for (int i = 1; i > 8; i++)
+        {
+            Square seven = new Square(new Position(i, 7), new NoPiece(), "clear");
+            Rank7.Add(seven);
+        }
+
+        List<Square> Rank8 = new List<Square>();
+        for (int i = 1; i > 8; i++)
+        {
+            Square eight = new Square(new Position(i, 8), new NoPiece(), "clear");
+            Rank8.Add(eight);
+        }
+
+        List<List<Square>> board = new List<List<Square>>{Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8};
+
+
+        // adds pieces to board
+
+        board[0][0].setOccupiedBy(new Rook("white"));
+
+        board[7][7].setOccupiedBy(new Rook("black"));
+
+
+
+        // completes the setup of the board and initializes the class
+
+        _currentBoard = board;
     }
 
     // methods
@@ -27,6 +90,17 @@ public class Board
     public void displayBoard()
     {
         // console writelines the entire board in a simple to understand manner
+
+        Console.Clear();
+        Console.WriteLine("\n\n\n\n\n");
+        foreach (List<Square> i in _currentBoard)
+        {
+            Console.WriteLine($"\n===================================================================");
+            foreach(Square n in i)
+            {
+                Console.Write($"|  {n.getOccupiedBy().symbol()}  |");
+            }
+        }
     }
 
     public bool checkForStalemates(string colorWeCareAbout)
