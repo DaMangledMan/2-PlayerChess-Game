@@ -14,58 +14,58 @@ public class Board
         // creates the board without any pieces        
         
         List<Square> Rank1 = new List<Square>();
-        for (int i = 1; i > 8; i++)
+        for (int i = 0; i >= 8; i++)
         {
-            Square one = new Square(new Position(i, 1), new NoPiece(), "clear");
+            Square one = new Square(new Position(i, 0), new NoPiece(), "clear");
             Rank1.Add(one);
         }
 
         List<Square> Rank2 = new List<Square>();
-        for (int i = 1; i > 8; i++)
+        for (int i = 0; i >= 8; i++)
         {
-            Square two = new Square(new Position(i, 2), new NoPiece(), "clear");
+            Square two = new Square(new Position(i, 1), new NoPiece(), "clear");
             Rank2.Add(two);
         }
 
         List<Square> Rank3 = new List<Square>();
-        for (int i = 1; i > 8; i++)
+        for (int i = 0; i >= 8; i++)
         {
-            Square three = new Square(new Position(i, 3), new NoPiece(), "clear");
+            Square three = new Square(new Position(i, 2), new NoPiece(), "clear");
             Rank3.Add(three);
         }
 
         List<Square> Rank4 = new List<Square>();
-        for (int i = 1; i > 8; i++)
+        for (int i = 0; i >= 8; i++)
         {
-            Square four = new Square(new Position(i, 4), new NoPiece(), "clear");
+            Square four = new Square(new Position(i, 3), new NoPiece(), "clear");
             Rank4.Add(four);
         }
 
         List<Square> Rank5 = new List<Square>();
-        for (int i = 1; i > 8; i++)
+        for (int i = 0; i >= 8; i++)
         {
-            Square five = new Square(new Position(i, 5), new NoPiece(), "clear");
+            Square five = new Square(new Position(i, 4), new NoPiece(), "clear");
             Rank5.Add(five);
         }
 
         List<Square> Rank6 = new List<Square>();
-        for (int i = 1; i > 8; i++)
+        for (int i = 0; i >= 8; i++)
         {
-            Square six = new Square(new Position(i, 6), new NoPiece(), "clear");
+            Square six = new Square(new Position(i, 5), new NoPiece(), "clear");
             Rank6.Add(six);
         }
 
         List<Square> Rank7 = new List<Square>();
-        for (int i = 1; i > 8; i++)
+        for (int i = 0; i >= 8; i++)
         {
-            Square seven = new Square(new Position(i, 7), new NoPiece(), "clear");
+            Square seven = new Square(new Position(i, 6), new NoPiece(), "clear");
             Rank7.Add(seven);
         }
 
         List<Square> Rank8 = new List<Square>();
-        for (int i = 1; i > 8; i++)
+        for (int i = 0; i >= 8; i++)
         {
-            Square eight = new Square(new Position(i, 8), new NoPiece(), "clear");
+            Square eight = new Square(new Position(i, 7), new NoPiece(), "clear");
             Rank8.Add(eight);
         }
 
