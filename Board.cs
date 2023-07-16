@@ -28,13 +28,45 @@ public class Board
         
         // adds pieces to board (coordinates are in order [y][x])
 
+        // sets white back rank
         chessBoard[0][0].setOccupiedBy(new Rook("white"));
-
+        chessBoard[0][1].setOccupiedBy(new Knight("white"));
+        chessBoard[0][2].setOccupiedBy(new Bishop("white"));
+        chessBoard[0][3].setOccupiedBy(new King("white"));
+        chessBoard[0][4].setOccupiedBy(new Queen("white"));
+        chessBoard[0][5].setOccupiedBy(new Bishop("white"));
+        chessBoard[0][6].setOccupiedBy(new Knight("white"));
         chessBoard[0][7].setOccupiedBy(new Rook("white"));
 
-        chessBoard[7][7].setOccupiedBy(new Rook("black"));
+        // sets white pawns
+        chessBoard[1][0].setOccupiedBy(new Pawn("white"));
+        chessBoard[1][1].setOccupiedBy(new Pawn("white"));
+        chessBoard[1][2].setOccupiedBy(new Pawn("white"));
+        chessBoard[1][3].setOccupiedBy(new Pawn("white"));
+        chessBoard[1][4].setOccupiedBy(new Pawn("white"));
+        chessBoard[1][5].setOccupiedBy(new Pawn("white"));
+        chessBoard[1][6].setOccupiedBy(new Pawn("white"));
+        chessBoard[1][7].setOccupiedBy(new Pawn("white"));
 
+        // sets black pawns
+        chessBoard[6][0].setOccupiedBy(new Pawn("black"));
+        chessBoard[6][1].setOccupiedBy(new Pawn("black"));
+        chessBoard[6][2].setOccupiedBy(new Pawn("black"));
+        chessBoard[6][3].setOccupiedBy(new Pawn("black"));
+        chessBoard[6][4].setOccupiedBy(new Pawn("black"));
+        chessBoard[6][5].setOccupiedBy(new Pawn("black"));
+        chessBoard[6][6].setOccupiedBy(new Pawn("black"));
+        chessBoard[6][7].setOccupiedBy(new Pawn("black"));
+
+        // sets black back rank
         chessBoard[7][0].setOccupiedBy(new Rook("black"));
+        chessBoard[7][1].setOccupiedBy(new Knight("black"));
+        chessBoard[7][2].setOccupiedBy(new Bishop("black"));
+        chessBoard[7][3].setOccupiedBy(new King("black"));
+        chessBoard[7][4].setOccupiedBy(new Queen("black"));
+        chessBoard[7][5].setOccupiedBy(new Bishop("black"));
+        chessBoard[7][6].setOccupiedBy(new Knight("black"));
+        chessBoard[7][7].setOccupiedBy(new Rook("black"));
 
 
 
@@ -48,7 +80,8 @@ public class Board
     private void displayBoard()
     {
         // console writelines the entire board in a simple to understand manner
-
+        
+        Console.Clear();
         Console.WriteLine("\n\n\n\n\n");
         Console.Write($"   |  0  ||  1  ||  2  ||  3  ||  4  ||  5  ||  6  ||  7  | X");
         int y = 0;
@@ -134,37 +167,35 @@ public class Board
         int toPosY = to.getPosition()[1];
 
         string swi = _Board[posY][posX].getOccupiedBy().getIsPiece();
-        Console.WriteLine(swi);
 
         switch (swi)
         {
             case "K":
-
+                possibleMoves = PosMov.checkKingMoves(_Board, from);
                 break;
 
             case "Q":
-
+                possibleMoves = PosMov.checkQueenMoves(_Board, from);
                 break;
 
             case "R":
-                Console.WriteLine("it recognized the Rook");
                 possibleMoves = PosMov.checkRookMoves(_Board, from);
                 break;
 
             case "B":
-
+                possibleMoves = PosMov.checkBishopMoves(_Board, from);
                 break;
 
-            case "Kn":
-
+            case "N":
+                possibleMoves = PosMov.checkKnightMoves(_Board, from);
                 break;
 
             case "P":
-
+                possibleMoves = PosMov.checkPawnMoves(_Board, from);
                 break;
 
             default:
-
+                Console.WriteLine("unable to recognize the piece selected");
                 break;
 
         }
@@ -180,39 +211,37 @@ public class Board
 
         if (contains)
         {
-            Console.WriteLine("board contains 'to' move");
             
             _Board[posY][posX].setOccupiedBy(new NoPiece());
 
             switch (swi)
             {
                 case "K":
-
+                    _Board[toPosY][toPosX].setOccupiedBy(new King(_currentTurn));
                     break;
 
                 case "Q":
-
+                    _Board[toPosY][toPosX].setOccupiedBy(new Queen(_currentTurn));
                     break;
 
                 case "R":
-                    Console.WriteLine("should edit the board");
                     _Board[toPosY][toPosX].setOccupiedBy(new Rook(_currentTurn));
                     break;
 
                 case "B":
-
+                    _Board[toPosY][toPosX].setOccupiedBy(new Bishop(_currentTurn));
                     break;
 
-                case "Kn":
-
+                case "N":
+                    _Board[toPosY][toPosX].setOccupiedBy(new Knight(_currentTurn));
                     break;
 
                 case "P":
-
+                    _Board[toPosY][toPosX].setOccupiedBy(new Pawn(_currentTurn));
                     break;
 
                 default:
-
+                    Console.WriteLine("should be unreachable");
                     break;
 
             }

@@ -17,10 +17,4 @@ public class Position
         return new List<int>{_x, _y};
     }
 
-    
-
-    public void display()
-    {
-        Console.WriteLine($"x: {_x}\ny: {_y}");
-    }
 }
