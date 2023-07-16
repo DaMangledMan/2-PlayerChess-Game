@@ -3,19 +3,14 @@ public class NoPiece : IPiece
     // attributes
 
     // constructor
-    public NoPiece(string color = "clear", bool isAlive = false, bool hasMoved = true) : base(color, isAlive, hasMoved)
+    public NoPiece(string color = "clear", string isPiece = "null", bool isAlive = false, bool hasMoved = true) : base(color, isPiece, isAlive, hasMoved)
     {
     }
 
     // methods
 
-    public override void makeMove()
-    {
-        throw new NotImplementedException();
-    }
-
     public override string symbol()
     {
-        return "_";
+        return "___";
     }
 }

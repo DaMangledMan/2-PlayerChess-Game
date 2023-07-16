@@ -3,14 +3,13 @@ public class Square
     // attributes
     private Position _position;
     private IPiece _occupiedBy;
-    private string _colorOfOccupier;
+    
 
     // constructor
-    public Square(Position position, IPiece occupiedBy, string color)
+    public Square(Position position, IPiece occupiedBy)
     {
         _position = position;
         _occupiedBy = occupiedBy;
-        _colorOfOccupier = color;
     }
 
     // methods
@@ -32,7 +31,7 @@ public class Square
 
     public string getColorOfOccupier()
     {
-        return _colorOfOccupier;
+        return _occupiedBy.getColor();
     }
 }
 

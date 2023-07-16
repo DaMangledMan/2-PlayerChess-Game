@@ -1,3 +1,6 @@
 ﻿Board board = new Board();
 
-board.displayBoard();
+while (true)
+{
+    board.takeTurn();
+}

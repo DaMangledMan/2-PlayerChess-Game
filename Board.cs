@@ -1,8 +1,8 @@
 public class Board
 {
     // attributes
-    private List<List<Square>> _currentBoard = new List<List<Square>> {};
-    private List<List<Square>> _futureBoard = new List<List<Square>> {};
+    private string _currentTurn = "white";
+    private List<List<Square>> _Board = new List<List<Square>> {};
 
     // constructor
     public Board()
@@ -11,125 +11,221 @@ public class Board
 
 
 
-        // creates the board without any pieces        
+        // creates the board without any pieces
+
+        List<List<Square>> chessBoard = new List<List<Square>> {};
+        for (int i = 0; i <= 7; i++)
+        {
+            List<Square> Rank = new List<Square> {};
+            for (int n = 0; n <= 7; n++)
+            {
+                Square R = new Square(new Position(n, i), new NoPiece());
+                Rank.Add(R);
+            }
+            chessBoard.Add(Rank);
+        }
+
         
-        List<Square> Rank1 = new List<Square>();
-        for (int i = 0; i >= 8; i++)
-        {
-            Square one = new Square(new Position(i, 0), new NoPiece(), "clear");
-            Rank1.Add(one);
-        }
+        // adds pieces to board (coordinates are in order [y][x])
 
-        List<Square> Rank2 = new List<Square>();
-        for (int i = 0; i >= 8; i++)
-        {
-            Square two = new Square(new Position(i, 1), new NoPiece(), "clear");
-            Rank2.Add(two);
-        }
+        chessBoard[0][0].setOccupiedBy(new Rook("white"));
 
-        List<Square> Rank3 = new List<Square>();
-        for (int i = 0; i >= 8; i++)
-        {
-            Square three = new Square(new Position(i, 2), new NoPiece(), "clear");
-            Rank3.Add(three);
-        }
+        chessBoard[0][7].setOccupiedBy(new Rook("white"));
 
-        List<Square> Rank4 = new List<Square>();
-        for (int i = 0; i >= 8; i++)
-        {
-            Square four = new Square(new Position(i, 3), new NoPiece(), "clear");
-            Rank4.Add(four);
-        }
+        chessBoard[7][7].setOccupiedBy(new Rook("black"));
 
-        List<Square> Rank5 = new List<Square>();
-        for (int i = 0; i >= 8; i++)
-        {
-            Square five = new Square(new Position(i, 4), new NoPiece(), "clear");
-            Rank5.Add(five);
-        }
-
-        List<Square> Rank6 = new List<Square>();
-        for (int i = 0; i >= 8; i++)
-        {
-            Square six = new Square(new Position(i, 5), new NoPiece(), "clear");
-            Rank6.Add(six);
-        }
-
-        List<Square> Rank7 = new List<Square>();
-        for (int i = 0; i >= 8; i++)
-        {
-            Square seven = new Square(new Position(i, 6), new NoPiece(), "clear");
-            Rank7.Add(seven);
-        }
-
-        List<Square> Rank8 = new List<Square>();
-        for (int i = 0; i >= 8; i++)
-        {
-            Square eight = new Square(new Position(i, 7), new NoPiece(), "clear");
-            Rank8.Add(eight);
-        }
-
-        List<List<Square>> board = new List<List<Square>>{Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8};
-
-
-        // adds pieces to board
-
-        board[0][0].setOccupiedBy(new Rook("white"));
-
-        board[7][7].setOccupiedBy(new Rook("black"));
+        chessBoard[7][0].setOccupiedBy(new Rook("black"));
 
 
 
         // completes the setup of the board and initializes the class
 
-        _currentBoard = board;
+        _Board = chessBoard;
     }
 
     // methods
 
-    public void displayBoard()
+    private void displayBoard()
     {
         // console writelines the entire board in a simple to understand manner
 
-        Console.Clear();
         Console.WriteLine("\n\n\n\n\n");
-        foreach (List<Square> i in _currentBoard)
+        Console.Write($"   |  0  ||  1  ||  2  ||  3  ||  4  ||  5  ||  6  ||  7  | X");
+        int y = 0;
+        foreach (List<Square> i in _Board)
         {
-            Console.WriteLine($"\n===================================================================");
+            Console.Write($"\n===========================================================\n {y} ");
             foreach(Square n in i)
             {
-                Console.Write($"|  {n.getOccupiedBy().symbol()}  |");
+                Console.Write($"| {n.getOccupiedBy().symbol()} |");
             }
+            y ++;
+        }
+        Console.WriteLine("\n===========================================================\n Y");
+        Console.WriteLine($"\n\n\n\n\nIt is {_currentTurn}'s Turn.");
+    }
+
+    public void takeTurn()
+    {
+        displayBoard();
+        
+        while (true)
+        {
+            Console.WriteLine("What is the x value for the square that the piece you want to move is on?");
+            int posX = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("What is the y value for the square that the piece you want to move is on?");
+            int posY = int.Parse(Console.ReadLine());
+
+            if (_Board[posY][posX].getOccupiedBy().getColor() != _currentTurn)
+            {
+                displayBoard();
+                Console.WriteLine("You must choose a piece that is your color.");
+                continue;
+            }
+
+            Console.WriteLine("What is the x value for the square that you want to move the piece to?");
+            int toPosX = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("What is the y value for the square that you want to move the piece to?");
+            int toPosY = int.Parse(Console.ReadLine());
+
+            Position from = new Position(posX, posY);
+            Position to = new Position(toPosX, toPosY);
+
+            if (attemptToMakeMove(from, to))
+            {
+                break;
+            }
+            else
+            {
+                displayBoard();
+                Console.WriteLine("The attempted move was not possible. Please try again.");
+                continue;
+            }
+        }
+        if (_currentTurn == "white")
+        {
+            _currentTurn = "black";
+        }    
+        else if (_currentTurn == "black")
+        {
+            _currentTurn = "white";
+        }
+
+        if (!searchForKing())
+        {
+            Console.Clear();
+            Console.WriteLine($"\n\n\n\n{_currentTurn} wins!!!\n  Congratulations\n\n\n\n\n\n\n\n");
+            Environment.Exit(1);
         }
     }
 
-    public bool checkForStalemates(string colorWeCareAbout)
+    private bool attemptToMakeMove(Position from, Position to)
     {
-        return false; // this is just to prevent it from looking highlighting red
+        PossibleMoves PosMov = new PossibleMoves(_currentTurn);
 
-        // this should check to make sure there is a possible move for the player who's turn it currently is
+        List<Position> possibleMoves = new List<Position> {};
+
+        int posX = from.getPosition()[0];
+        int posY = from.getPosition()[1];
+
+        int toPosX = to.getPosition()[0];
+        int toPosY = to.getPosition()[1];
+
+        string swi = _Board[posY][posX].getOccupiedBy().getIsPiece();
+        Console.WriteLine(swi);
+
+        switch (swi)
+        {
+            case "K":
+
+                break;
+
+            case "Q":
+
+                break;
+
+            case "R":
+                Console.WriteLine("it recognized the Rook");
+                possibleMoves = PosMov.checkRookMoves(_Board, from);
+                break;
+
+            case "B":
+
+                break;
+
+            case "Kn":
+
+                break;
+
+            case "P":
+
+                break;
+
+            default:
+
+                break;
+
+        }
+
+        bool contains = false;
+        foreach (Position i in possibleMoves)
+        {
+            if (i.getPosition()[0] == to.getPosition()[0] && i.getPosition()[1] == to.getPosition()[1])
+            {
+                contains = true;
+            }
+        }
+
+        if (contains)
+        {
+            Console.WriteLine("board contains 'to' move");
+            
+            _Board[posY][posX].setOccupiedBy(new NoPiece());
+
+            switch (swi)
+            {
+                case "K":
+
+                    break;
+
+                case "Q":
+
+                    break;
+
+                case "R":
+                    Console.WriteLine("should edit the board");
+                    _Board[toPosY][toPosX].setOccupiedBy(new Rook(_currentTurn));
+                    break;
+
+                case "B":
+
+                    break;
+
+                case "Kn":
+
+                    break;
+
+                case "P":
+
+                    break;
+
+                default:
+
+                    break;
+
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    public bool checkForChecks(string colorWeCareAbout)
+    private bool searchForKing()
     {
-        return false; // this is just to prevent it from looking highlighting red
-
-        // this should check to make sure there is a possible move for the player who's turn it currently is
+        return true;
     }
-
-    public bool checkForChecksMates(string colorWeCareAbout)
-    {
-        return false; // this is just to prevent it from looking highlighting red
-
-        // this should check to make sure there is a possible move for the player who's turn it currently is
-    }
-
-    public bool attemptToMakeMove(string moveToAttempt)
-    {
-        return false; // this is just to prevent it from looking highlighting red
-
-        // takes input as a move, attempts to make the move, returns a bool to notify the program if the move was succesful
-    }
-
-
 }

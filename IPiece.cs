@@ -1,24 +1,29 @@
 public abstract class IPiece
 {
     // attributes
+    protected string _isPiece;
     protected bool _isAlive;
     protected bool _hasMoved;
     protected string _color;
     protected Position _position = new Position(0, 0);
 
     // constructor
-    public IPiece(string color, bool isAlive = true, bool hasMoved = false)
+    public IPiece(string color, string isPiece, bool isAlive = true, bool hasMoved = false)
     {
+        _isPiece = isPiece;
         _isAlive = isAlive;
         _hasMoved = hasMoved;
         _color = color;
     }
 
     // methods
-    
-    public abstract void makeMove();
 
     public abstract string symbol();
+
+    public string getIsPiece()
+    {
+        return _isPiece;
+    }
 
     public bool getIsAlive()
     {
