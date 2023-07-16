@@ -148,7 +148,7 @@ public class PossibleMoves
         if (_currentColor == "white")
         {
 
-            if (posY-1 !< 0 && posX-1 !< 0)
+            if (posY-1 >= 0 && posX-1 !< 0)
             {
                 Square square = board[posY-1][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -164,8 +164,9 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0)
+            if (posY-1 >= 0)
             {
+                Console.WriteLine(posY);
                 Square square = board[posY-1][posX];
                 if (square.getOccupiedBy().getColor() == "clear")
                 {
@@ -436,20 +437,16 @@ public class PossibleMoves
             
             for (int i = posX - 1; i >= 0; i --)
             {
-                Console.WriteLine("check left white");
                 if (board[posY][i].getOccupiedBy().getColor() == "clear")
                 {
-                    Console.WriteLine("found clear");
                     list.Add(new Position(i, posY));
                 }
                 else if (board[posY][i].getOccupiedBy().getColor() == "white")
                 {
-                    Console.WriteLine("found white");
                     break;
                 }
                 else if (board[posY][i].getOccupiedBy().getColor() == "black")
                 {
-                    Console.WriteLine("found black");
                     list.Add(new Position(i, posY));
                     break;
                 }
@@ -457,46 +454,36 @@ public class PossibleMoves
 
             for (int i = posX + 1; i <= 7; i ++)
             {
-                Console.WriteLine("check right white");
                 if (board[posY][i].getOccupiedBy().getColor() == "clear")
                 {
-                    Console.WriteLine("found clear");
                     list.Add(new Position(i, posY));
                 }
                 else if (board[posY][i].getOccupiedBy().getColor() == "white")
                 {
-                    Console.WriteLine("found white");
                     break;
                 }
                 else if (board[posY][i].getOccupiedBy().getColor() == "black")
                 {
-                    Console.WriteLine("found black");
                     list.Add(new Position(i, posY));
                     break;
                 }
             }
-            Console.WriteLine("returned white H move list");
-            return list;
         }
         else if (_currentColor == "black")
         {
             
             for (int i = posX - 1; i >= 0; i --)
             {
-                Console.WriteLine("check left black");
                 if (board[posY][i].getOccupiedBy().getColor() == "clear")
                 {
-                    Console.WriteLine("found clear");
                     list.Add(new Position(i, posY));
                 }
                 else if (board[posY][i].getOccupiedBy().getColor() == "black")
                 {
-                    Console.WriteLine("found black");
                     break;
                 }
                 else if (board[posY][i].getOccupiedBy().getColor() == "white")
                 {
-                    Console.WriteLine("found white");
                     list.Add(new Position(i, posY));
                     break;
                 }
@@ -504,32 +491,28 @@ public class PossibleMoves
 
             for (int i = posX + 1; i <= 7; i ++)
             {
-                Console.WriteLine("check right black");
                 if (board[posY][i].getOccupiedBy().getColor() == "clear")
                 {
-                    Console.WriteLine("found clear");
                     list.Add(new Position(i, posY));
                 }
                 else if (board[posY][i].getOccupiedBy().getColor() == "black")
                 {
-                    Console.WriteLine("found black");
                     break;
                 }
                 else if (board[posY][i].getOccupiedBy().getColor() == "white")
                 {
-                    Console.WriteLine("found white");
                     list.Add(new Position(i, posY));
                     break;
                 }
             }
             Console.WriteLine("returned black H move list");
-            return list;
         }
         else
         {
             Console.WriteLine("some color other than 'white' or 'black' was given to the 'RookHorizontalMove' method.");
-            return list;
         }
+
+        return list;
     }
 
     private List<Position> RookVerticalMove(List<List<Square>> board, Position position)
@@ -657,7 +640,7 @@ public class PossibleMoves
             for (int i = 1; posX + i <= 7 && posY - i >= 0 ; i ++)
             {
 
-                Square square = board[posX+i][posY-i];
+                Square square = board[posY-i][posX+i];
 
                 if (square.getOccupiedBy().getColor() == "clear")
                 {
@@ -678,7 +661,7 @@ public class PossibleMoves
             for (int i = 1; posX - i >= 0 && posY + i <= 7 ; i ++)
             {
 
-                Square square = board[posX-i][posY+i];
+                Square square = board[posY+i][posX-i];
 
                 if (square.getOccupiedBy().getColor() == "clear")
                 {
@@ -705,7 +688,7 @@ public class PossibleMoves
             for (int i = 1; posX + i <= 7 && posY - i >= 0 ; i ++)
             {
 
-                Square square = board[posX+i][posY-i];
+                Square square = board[posY-i][posX+i];
 
                 if (square.getOccupiedBy().getColor() == "clear")
                 {
@@ -727,7 +710,7 @@ public class PossibleMoves
             {
 
 
-                Square square = board[posX-i][posY+i];
+                Square square = board[posY+i][posX-i];
 
                 if (square.getOccupiedBy().getColor() == "clear")
                 {
@@ -777,7 +760,7 @@ public class PossibleMoves
             for (int i = 1; posX + i <= 7 && posY + i <= 7 ; i ++)
             {
 
-                Square square = board[posX+i][posY+i];
+                Square square = board[posY+i][posX+i];
 
                 if (square.getOccupiedBy().getColor() == "clear")
                 {
@@ -799,7 +782,7 @@ public class PossibleMoves
             {
 
 
-                Square square = board[posX-i][posY-i];
+                Square square = board[posY-i][posX-i];
 
                 if (square.getOccupiedBy().getColor() == "clear")
                 {
