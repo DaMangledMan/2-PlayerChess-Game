@@ -30,15 +30,13 @@ public class Board
 
         // sets white back rank
         chessBoard[0][0].setOccupiedBy(new Rook("white"));
-       // chessBoard[0][1].setOccupiedBy(new Knight("white"));
+        chessBoard[0][1].setOccupiedBy(new Knight("white"));
         chessBoard[0][2].setOccupiedBy(new Bishop("white"));
-       // chessBoard[0][3].setOccupiedBy(new King("white"));
+        chessBoard[0][3].setOccupiedBy(new King("white"));
         chessBoard[0][4].setOccupiedBy(new Queen("white"));
         chessBoard[0][5].setOccupiedBy(new Bishop("white"));
-       // chessBoard[0][6].setOccupiedBy(new Knight("white"));
+        chessBoard[0][6].setOccupiedBy(new Knight("white"));
         chessBoard[0][7].setOccupiedBy(new Rook("white"));
-
-/*
 
         // sets white pawns
         chessBoard[1][0].setOccupiedBy(new Pawn("white"));
@@ -60,16 +58,14 @@ public class Board
         chessBoard[6][6].setOccupiedBy(new Pawn("black"));
         chessBoard[6][7].setOccupiedBy(new Pawn("black"));
 
-*/
-
         // sets black back rank
         chessBoard[7][0].setOccupiedBy(new Rook("black"));
-       // chessBoard[7][1].setOccupiedBy(new Knight("black"));
+        chessBoard[7][1].setOccupiedBy(new Knight("black"));
         chessBoard[7][2].setOccupiedBy(new Bishop("black"));
-       // chessBoard[7][3].setOccupiedBy(new King("black"));
+        chessBoard[7][3].setOccupiedBy(new King("black"));
         chessBoard[7][4].setOccupiedBy(new Queen("black"));
         chessBoard[7][5].setOccupiedBy(new Bishop("black"));
-       // chessBoard[7][6].setOccupiedBy(new Knight("black"));
+        chessBoard[7][6].setOccupiedBy(new Knight("black"));
         chessBoard[7][7].setOccupiedBy(new Rook("black"));
 
 
@@ -85,7 +81,7 @@ public class Board
     {
         // console writelines the entire board in a simple to understand manner
         
-       // Console.Clear();
+        Console.Clear();
         Console.WriteLine("\n\n\n\n\n");
         Console.Write($"   |  0  ||  1  ||  2  ||  3  ||  4  ||  5  ||  6  ||  7  | X");
         int y = 0;
@@ -260,5 +256,7 @@ public class Board
     private bool searchForKing()
     {
         return true;
+
+        // returns true because I haven't programed something to check if the kings are alive.
     }
 }

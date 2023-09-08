@@ -145,10 +145,10 @@ public class PossibleMoves
         int posX = position.getPosition()[0];
         int posY = position.getPosition()[1];
 
+
         if (_currentColor == "white")
         {
-
-            if (posY-1 >= 0 && posX-1 !< 0)
+            if (posY-1 >= 0 && posX-1 >= 0)
             {
                 Square square = board[posY-1][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -166,7 +166,6 @@ public class PossibleMoves
 
             if (posY-1 >= 0)
             {
-                Console.WriteLine(posY);
                 Square square = board[posY-1][posX];
                 if (square.getOccupiedBy().getColor() == "clear")
                 {
@@ -181,7 +180,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0 && posX+1 !> 7)
+            if (posY-1 >= 0 && posX+1 <= 7)
             {
                 Square square = board[posY-1][posX+1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -197,7 +196,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posX+1 !> 7)
+            if (posX+1 <= 7)
             {
                 Square square = board[posY][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -213,7 +212,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7 && posX+1 !> 7)
+            if (posY+1 <= 7 && posX+1 <= 7)
             {
                 Square square = board[posY+1][posX+1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -229,7 +228,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7)
+            if (posY+1 <= 7)
             {
                 Square square = board[posY+1][posX];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -245,7 +244,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7 && posX-1 !< 0)
+            if (posY+1 <= 7 && posX-1 >= 0)
             {
                 Square square = board[posY+1][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -261,7 +260,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posX-1 !< 0)
+            if (posX-1 >= 0)
             {
                 Square square = board[posY][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -278,12 +277,10 @@ public class PossibleMoves
             }
 
         }
-        
-
-        if (_currentColor == "black")
+        else if (_currentColor == "black")
         {
 
-            if (posY-1 !< 0 && posX-1 !< 0)
+            if (posY-1 >= 0 && posX-1 >= 0)
             {
                 Square square = board[posY-1][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -299,7 +296,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0)
+            if (posY-1 >= 0)
             {
                 Square square = board[posY-1][posX];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -315,7 +312,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0 && posX+1 !> 7)
+            if (posY-1 >= 0 && posX+1 <= 7)
             {
                 Square square = board[posY-1][posX+1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -331,7 +328,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posX+1 !> 7)
+            if (posX+1 <= 7)
             {
                 Square square = board[posY][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -347,7 +344,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7 && posX+1 !> 7)
+            if (posY+1 <= 7 && posX+1 <= 7)
             {
                 Square square = board[posY+1][posX+1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -363,7 +360,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7)
+            if (posY+1 <= 7)
             {
                 Square square = board[posY+1][posX];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -379,7 +376,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7 && posX-1 !< 0)
+            if (posY+1 <= 7 && posX-1 >= 0)
             {
                 Square square = board[posY+1][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -395,7 +392,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posX-1 !< 0)
+            if (posX-1 >= 0)
             {
                 Square square = board[posY][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -412,7 +409,6 @@ public class PossibleMoves
             }
 
         }
-
         else
         {
             Console.WriteLine("some color other than 'white' or 'black' was given to the 'KingMove' method.");
@@ -879,7 +875,7 @@ public class PossibleMoves
         if (_currentColor == "white")
         {
 
-            if (posY-2 !< 0 && posX-1 !< 0)
+            if (posY-2 >= 0 && posX-1 >= 0)
             {
                 Square square = board[posY-2][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -895,7 +891,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0 && posX+1 !> 7)
+            if (posY-1 >= 0 && posX+1 <= 7)
             {
                 Square square = board[posY-1][posX+1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -911,7 +907,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0 && posX+2 !> 7)
+            if (posY-1 >= 0 && posX+2 <= 7)
             {
                 Square square = board[posY-1][posX+2];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -927,7 +923,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7 && posX+2 !> 7)
+            if (posY+1 <= 7 && posX+2 <= 7)
             {
                 Square square = board[posY+1][posX+2];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -943,7 +939,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+2 !> 7 && posX-1 !< 0)
+            if (posY+2 <= 7 && posX-1 >= 0)
             {
                 Square square = board[posY+2][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -959,7 +955,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+2 !> 7 && posX+1 !> 7)
+            if (posY+2 <= 7 && posX+1 <= 7)
             {
                 Square square = board[posY+2][posX+1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -975,7 +971,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0 && posX-2 !< 0)
+            if (posY-1 >= 0 && posX-2 >= 0)
             {
                 Square square = board[posY-1][posX-2];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -991,7 +987,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7 && posX-2 !< 0)
+            if (posY+1 <= 7 && posX-2 >= 0)
             {
                 Square square = board[posY+1][posX-2];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1013,7 +1009,7 @@ public class PossibleMoves
         if (_currentColor == "black")
         {
 
-           if (posY-2 !< 0 && posX-1 !< 0)
+           if (posY-2 >= 0 && posX-1 >= 0)
             {
                 Square square = board[posY-2][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1029,7 +1025,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0 && posX+1 !> 7)
+            if (posY-1 >= 0 && posX+1 <= 7)
             {
                 Square square = board[posY-1][posX+1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1045,7 +1041,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0 && posX+2 !> 7)
+            if (posY-1 >= 0 && posX+2 <= 7)
             {
                 Square square = board[posY-1][posX+2];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1061,7 +1057,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7 && posX+2 !> 7)
+            if (posY+1 <= 7 && posX+2 <= 7)
             {
                 Square square = board[posY+1][posX+2];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1077,7 +1073,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+2 !> 7 && posX-1 !< 0)
+            if (posY+2 <= 7 && posX-1 >= 0)
             {
                 Square square = board[posY+2][posX-1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1093,7 +1089,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+2 !> 7 && posX+1 !> 7)
+            if (posY+2 <= 7 && posX+1 <= 7)
             {
                 Square square = board[posY+2][posX+1];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1109,7 +1105,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY-1 !< 0 && posX-2 !< 0)
+            if (posY-1 >= 0 && posX-2 >= 0)
             {
                 Square square = board[posY-1][posX-2];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1125,7 +1121,7 @@ public class PossibleMoves
                 }
             }
 
-            if (posY+1 !> 7 && posX-2 !< 0)
+            if (posY+1 <= 7 && posX-2 >= 0)
             {
                 Square square = board[posY+1][posX-2];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1163,7 +1159,7 @@ public class PossibleMoves
         if (_currentColor == "white")
         {
 
-            if (posY+1 !> 7)
+            if (posY+1 <= 7)
             {
                 Square square = board[posY+1][posX];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1194,7 +1190,7 @@ public class PossibleMoves
         else if (_currentColor == "black")
         {
 
-            if (posY-1 !> 0)
+            if (posY-1 >= 0)
             {
                 Square square = board[posY-1][posX];
                 if (square.getOccupiedBy().getColor() == "clear")
@@ -1243,7 +1239,7 @@ public class PossibleMoves
         {
             if (posY+1 !> 7)
             {
-                if (posX+1 !> 7)
+                if (posX+1 <= 7)
                 {
                     Square square = board[posY+1][posX+1];
                     if (square.getOccupiedBy().getColor() == "black")
@@ -1254,7 +1250,7 @@ public class PossibleMoves
                     {
                     }
                 }
-                else if (posX-1 !< 0)
+                else if (posX-1 >= 0)
                 {
                     Square square = board[posY+1][posX-1];
                     if (square.getOccupiedBy().getColor() == "black")
@@ -1272,7 +1268,7 @@ public class PossibleMoves
         {
             if (posY-1 !> 7)
             {
-                if (posX+1 !> 7)
+                if (posX+1 <= 7)
                 {
                     Square square = board[posY+1][posX+1];
                     if (square.getOccupiedBy().getColor() == "white")
@@ -1283,7 +1279,7 @@ public class PossibleMoves
                     {
                     }
                 }
-                else if (posX-1 !< 0)
+                else if (posX-1 >= 0)
                 {
                     Square square = board[posY+1][posX-1];
                     if (square.getOccupiedBy().getColor() == "white")
